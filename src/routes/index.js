@@ -1,16 +1,17 @@
-import { OnlyHeader } from '~/components/layout';
+import { OnlyHeader } from '~/layout';
 
 import Following from '~/pages/following';
 import Home from '~/pages/Home';
 import Profile from '~/pages/profile';
 import Upload from '~/pages/Upload';
-// import { OnlyHeader } from '~/components/layout';
+import config from '~/config';
+// import { OnlyHeader } from '~/layout';
 
 const PublicRoutes = [
-    { path: '/following', component: Following },
-    { path: '/', component: Home },
-    { path: '/profile', component: Profile },
-    { path: '/upload', component: Upload, layout: OnlyHeader },
+    { path: config.routes.following, component: Following },
+    { path: config.routes.home, component: Home },
+    { path: config.routes.profile, component: Profile },
+    { path: config.routes.upload, component: Upload, layout: OnlyHeader },
 ];
 
 const PrivateRoutes = [];

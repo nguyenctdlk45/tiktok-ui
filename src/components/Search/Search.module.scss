@@ -1,0 +1,90 @@
+.search,
+.search-result {
+    width: 361px;
+}
+.search-title {
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
+.search {
+    align-items: center;
+    display: flex;
+    position: relative;
+    background-color: rgba(22, 24, 35, 0.06);
+
+    height: var(--search-height);
+    border: 1.5px solid transparent;
+    border-radius: var(--search-border-radius);
+    padding-left: 16px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: var(--search-top-spacer);
+        right: var(--search-button-width);
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+
+    input {
+        position: relative;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        flex: 1;
+        height: 100%;
+        caret-color: var(--primary);
+    }
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+    input:not(:placeholder-shown) ~ .loading {
+        display: none;
+    }
+    .close-btn {
+        position: absolute;
+        right: calc(var(--search-button-width) + 16px);
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(22, 24, 35, 0.34);
+    }
+    .loading {
+        top: 20px;
+        position: absolute;
+        right: calc(var(--search-button-width) + 16px);
+        transform: translateY(-50%);
+        color: rgba(22, 24, 35, 0.34);
+        animation: spiner 0.8s linear infinite;
+    }
+    @keyframes spiner {
+        from {
+            transform: translateY(-50%) rotate(-360deg);
+        }
+    }
+
+    .search-btn {
+        // background-color: aqua;
+        padding: 6px 13px;
+        border-top-right-radius: var(--search-border-radius);
+        border-bottom-right-radius: var(--search-border-radius);
+        height: 100%;
+        font-size: 2.6rem;
+        width: var(--search-button-width);
+        color: rgba(22, 24, 35, 0.34);
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(22, 24, 35, 0.03);
+            color: rgba(22, 24, 35, 0.75);
+        }
+
+        &:active {
+            background-color: rgba(22, 24, 35, 0.06);
+        }
+    }
+}
